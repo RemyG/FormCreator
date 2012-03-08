@@ -1,8 +1,79 @@
+body {
+	width: 1020px;
+	margin: 15px auto;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	vertical-align: middle;
+}
+
+div.header {
+	width: 100%;
+	text-align: center;
+	padding: 0;	
+	margin-bottom: 15px;
+}
+
+div.title {
+	font-size: 24px;
+}
+
+div.by {
+	margin-top: 10px;
+	font-size: 11px;
+}
+
+div.footer {
+	margin-top: 15px;
+	text-align: center;
+	font-size: 11px;
+}
+
 div.button {
+	clear: both;
 	border: 1px solid black;
 	width: 150px;
 	padding: 7px 0px;
 	text-align: center;
-	margin: 10px 0px;
+	margin: 20px 0px;
 	cursor: pointer;
+	position: relative;
+	top: 10px;
+	left: 200px;
+}
+
+label {
+	clear: both;
+	float: left;
+	width: 200px;
+	margin: 10px 0px;
+	vertical-align: middle;
+}
+
+input, textarea, select {
+	float: left;
+	vertical-align: middle;
+}
+
+input {
+	width: 800px;
+}
+
+select {
+	min-width: 300px;
+}
+
+textarea {
+	width: 800px;
+	height: 400px;
+}
+
+div.result {
+	border: 1px solid red;
+	width: 970px;
+	padding: 15px;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 12px;
+}
+
+div.input_entry {
+	vertical-align: middle;
 }

@@ -1,5 +1,7 @@
 function parseFormStructure() {
 
+	var indent = "&nbsp;&nbsp;&nbsp;&nbsp;";
+
 	var sForm = "&lt;form ";
 
 	var formAction = document.getElementById('form_action').value;
@@ -21,15 +23,16 @@ function parseFormStructure() {
 
 	while(result != null) {
 
-		sForm += "&lt;input type='hidden' name='"+result[1]+"' value='"+result[2]+"' /&gt;<br/>";
+		sForm += indent + "&lt;input type='hidden' name='"+result[1]+"' value='"+result[2]+"' /&gt;<br/>";
 		result = patt1.exec(formParameters);
 
 	}
 
-	sForm += "&lt;input type='submit' /&gt;<br/>"
+	sForm += indent + "&lt;input type='submit' /&gt;<br/>"
 
 	sForm += "&lt;/form&gt;"
 
 	document.getElementById('form_result').innerHTML = sForm;
+	document.getElementById('form_result').style.display="block";
 
 }

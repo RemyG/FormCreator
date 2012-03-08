@@ -1,34 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
 <link rel="stylesheet" type="text/css" href="formCreator.css" />
 
 <script src="formCreator.js"></script>
 
+</head>
+
+<body>
+
+<div class="header">
+	<div class="title">Form Creator</div>
+</div>
+
 <form>
 
-<label for="form_action">Action</label>
-<input type="text" id="form_action" />
+	<div class="input_entry">
+		<label for="form_action">Action</label>
+		<input type="text" id="form_action" />
+	</div>
 
-<br/>
+	<div class="input_entry">
+		<label for="form_method">Method</label>
+		<select id="form_method">
+		<option id="form_method_post" value="post">Post</option>
+		<option id="form_method_get" value="get">Get</option>
+		</select>
+	</div>
 
-<label for="form_method">Method</label>
-<select id="form_method">
-<option id="form_method_post" value="post">Post</option>
-<option id="form_method_get" value="get">Get</option>
-</select>
+	<div class="input_entry">
+		<label for="form_regex">Parameters form</label>
+		<input type="text" id="form_regex" />
+	</div>
 
-<br/>
+	<div class="input_entry">
+		<label for="form_parameters">Parameters</label>
+		<textarea id="form_parameters"></textarea>
+	</div>
 
-<label for="form_regex">Parameters form</label>
-<input type="text" id="form_regex" />
-
-<br/>
-
-<label for="form_parameters">Parameters</label>
-<textarea id="form_parameters"></textarea>
-
-<br/>
-
-<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
-
-<div id="form_result"></div>
+	<div class="input_entry">
+		<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
+	</div>
 
 </form>
+
+<div class="result" id="form_result" style="display: none"></div>
+
+<div class="footer">
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+<br />
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>
+<br/>
+Created by <a href="http://remy-gardette.fr">Remy Gardette</a>. The sources can be found at <a href="https://github.com/RemyG/FormCreator">https://github.com/RemyG/FormCreator</a>
+</div>
+
+</body>
+
+</html>

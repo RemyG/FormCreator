@@ -1,0 +1,29 @@
+About
+
+This software is meant to create HTML forms composed by an action, a method, and a list of parameters.
+The parameters are transformed to hidden inputs in the form.
+This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.
+
+How to
+
+Put the right values in the Action and Method fields.
+Put a regular expression matching your parameters structure and catching them in pairs name/value.
+	Ex: to catch the name and value of "PARAMETER :: control=12 "
+		put a regexp like "PARAMETER :: (.+?)=(.*) "
+		the first catching expression will be inserted as the name of the input, and the second as its value.
+Put you parameters list in the text zone.
+Click "Create form".
+Enjoy
+
+License
+
+Created by Remy Gardette.
+This work is licensed under a Creative Commons Attribution 3.0 Unported License, CC-BY.
+You are free:
+    to Share — to copy, distribute and transmit the work
+    to Remix — to adapt the work
+    to make commercial use of the work
+Under the following conditions:
+    Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the zork).
+
+
