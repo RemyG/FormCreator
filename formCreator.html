@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="formCreator.css" />
+
+<script src="formCreator.js"></script>
+
+<form>
+
+<label for="form_action">Action</label>
+<input type="text" id="form_action" />
+
+<br/>
+
+<label for="form_method">Method</label>
+<select id="form_method">
+<option id="form_method_post" value="post">Post</option>
+<option id="form_method_get" value="get">Get</option>
+</select>
+
+<br/>
+
+<label for="form_regex">Parameters form</label>
+<input type="text" id="form_regex" />
+
+<br/>
+
+<label for="form_parameters">Parameters</label>
+<textarea id="form_parameters"></textarea>
+
+<br/>
+
+<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
+
+<div id="form_result"></div>
+
+</form>
