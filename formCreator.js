@@ -8,8 +8,8 @@ function parseFormStructure() {
 
 	var formMethod = document.getElementById('form_method').value;
 
-	sForm += "action='"+formAction+"' ";
-	sForm += "method='"+formMethod+"' ";
+	sForm += "action='"+escapeHtml(formAction)+"' ";
+	sForm += "method='"+escapeHtml(formMethod)+"' ";
 
 	sForm += "&gt;<br/>";
 
@@ -23,7 +23,7 @@ function parseFormStructure() {
 
 	while(result != null) {
 
-		sForm += indent + "&lt;input type='hidden' name='"+result[1]+"' value='"+result[2]+"' /&gt;<br/>";
+		sForm += indent + "&lt;input type='hidden' name='"+escapeHtml(result[1])+"' value='"+escapeHtml(result[2])+"' /&gt;<br/>";
 		result = patt1.exec(formParameters);
 
 	}
@@ -36,3 +36,13 @@ function parseFormStructure() {
 	document.getElementById('form_result').style.display="block";
 
 }
+
+function escapeHtml(unsafe) {
+  return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+}
+

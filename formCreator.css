@@ -44,7 +44,6 @@ label {
 	clear: both;
 	float: left;
 	width: 200px;
-	margin: 10px 0px;
 	vertical-align: middle;
 }
 
@@ -75,5 +74,6 @@ div.result {
 }
 
 div.input_entry {
-	vertical-align: middle;
+	padding: 15px 0;
+/*	vertical-align: middle;*/
 }
