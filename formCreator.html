@@ -40,13 +40,17 @@
 		<textarea id="form_parameters"></textarea>
 	</div>
 
-	<div class="input_entry">
+	<div class="input_entry_buttons">
 		<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
+		<div class="button" id="clear_all" style="float: right" onClick="javascript:clearAll();">Clear</div>
 	</div>
 
 </form>
 
-<div class="result" id="form_result" style="display: none"></div>
+<div class="result" id="form_result" style="display: none">
+	<label for="form_result_textarea">Result</label><br/>
+	<textarea id="form_result_textarea"></textarea>
+</div>
 
 <div class="footer">
 	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">

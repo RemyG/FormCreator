@@ -27,17 +27,25 @@ div.footer {
 	font-size: 11px;
 }
 
-div.button {
+div.input_entry_buttons {
 	clear: both;
+	width: 800px;
+	position: relative;
+	left: 200px;
+	top: 0px;
+	margin-bottom: 60px;
+}
+
+div.button {
+/*	clear: both;*/
+	float:left;
 	border: 1px solid black;
 	width: 150px;
 	padding: 7px 0px;
 	text-align: center;
-	margin: 20px 0px;
+	margin: 10px 0px;
 	cursor: pointer;
-	position: relative;
-	top: 10px;
-	left: 200px;
+/*	display: inline;*/
 }
 
 label {
@@ -49,7 +57,7 @@ label {
 
 input, textarea, select {
 	float: left;
-	vertical-align: middle;
+/*	vertical-align: middle;*/
 }
 
 input {
@@ -62,18 +70,25 @@ select {
 
 textarea {
 	width: 800px;
-	height: 400px;
+	height: 300px;
 }
 
 div.result {
-	border: 1px solid red;
+/*	border: 1px solid red;
 	width: 970px;
-	padding: 15px;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 12px;
+	padding: 15px;*/
+	/*font-family: 'Courier New', Courier, monospace;*/
+/*	font-size: 12px;*/
 }
 
 div.input_entry {
 	padding: 15px 0;
 /*	vertical-align: middle;*/
+}
+
+#form_result_textarea {
+	clear: left;
+	float: none;
+	width: 1000px;
+	height: 400px;
 }
