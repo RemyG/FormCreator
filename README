@@ -1,6 +1,6 @@
 About
 
-This software is meant to create HTML forms composed by an action, a method, and a list of parameters.
+This software is meant to create HTML forms with hidden inputs.
 The parameters are transformed to hidden inputs in the form.
 This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.
 
