@@ -22,6 +22,7 @@ div.by {
 }
 
 div.footer {
+	clear: both;
 	margin-top: 15px;
 	text-align: center;
 	font-size: 11px;
@@ -29,7 +30,7 @@ div.footer {
 
 div.input_entry_buttons {
 	clear: both;
-	width: 800px;
+	width: 805px;
 	position: relative;
 	left: 200px;
 	top: 0px;
@@ -45,6 +46,9 @@ div.button {
 	text-align: center;
 	margin: 10px 0px;
 	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 /*	display: inline;*/
 }
 
