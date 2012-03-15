@@ -2,16 +2,23 @@ function parseFormStructure() {
 
 	var indent = "    ";
 
-	var sForm = "<form ";
-
 	var formAction = document.getElementById('form_action').value;
 
 	var formMethod = document.getElementById('form_method').value;
 
-	sForm += "action='"+escapeHtml(formAction)+"' ";
-	sForm += "method='"+escapeHtml(formMethod)+"' ";
+	var formHeader = "<form ";
+	formHeader += "action='"+escapeHtml(formAction)+"' ";
+	formHeader += "method='"+escapeHtml(formMethod)+"' ";
+	var formHiddenHeader = formHeader + "target='_blank' name='myform' ";
+	formHeader += ">\n";
+	formHiddenHeader += ">\n";
 
-	sForm += ">\n";
+	var formContent = "";
+
+	var formFooter = "";
+	var formHiddenFooter = "";
+
+	
 
 	var formParameterRegex = document.getElementById('form_regex').value;
 
@@ -31,17 +38,20 @@ function parseFormStructure() {
 
 	while(result != null) {
 
-		sForm += indent + "<input type='hidden' name='"+escapeHtml(result[1])+"' value='"+escapeHtml(result[2])+"' />\n";
+		formContent += indent + "<input type='hidden' name='"+escapeHtml(result[1])+"' value='"+escapeHtml(result[2])+"' />\n";
 		result = patt1.exec(formParameters);
 
 	}
 
-	sForm += indent + "<input type='submit' />\n"
+	formFooter += indent + "<input type='submit' />\n";
+	formHiddenFooter += indent + "<div class='button' onClick='javascript:document.myform.submit();'>Submit</div>\n";
 
-	sForm += "</form>"
+	formFooter += "</form>";
+	formHiddenFooter += "</form>";
 
-	document.getElementById('form_result_textarea').value = sForm;
+	document.getElementById('form_result_textarea').value = formHeader + formContent + formFooter;
 	document.getElementById('form_result').style.display="block";
+	document.getElementById('form_result_form').innerHTML = formHiddenHeader + formContent + formHiddenFooter;
 
 }
 
@@ -58,6 +68,12 @@ function clearAll() {
 	document.getElementById('form_result_textarea').value = "";
 	document.getElementById('form_result').style.display="none";
 
+	document.getElementById('form_result_form').innerHTML = "";
+
+}
+
+function toHtml(raw) {
+	return raw.replace("\\n", "<br/>");
 }
 
 function escapeHtml(unsafe) {
