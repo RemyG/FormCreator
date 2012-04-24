@@ -1,3 +1,22 @@
+/*
+	This file is part of FormCreator.
+
+	Copyright 2012 Remy Gardette
+
+	FormCreator is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as 
+	published by the Free Software Foundation, either version 3 of 
+	the License, or (at your option) any later version.
+
+	FormCreator is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public License
+	along with FormCreator.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 function parseFormStructure() {
 
 	var indent = "    ";
@@ -70,6 +89,11 @@ function clearAll() {
 
 	document.getElementById('form_result_form').innerHTML = "";
 
+}
+
+function addCaptureGroup() {
+	document.getElementById('form_regex').value = document.getElementById('form_regex').value + "(.+?)";
+	document.getElementById('form_regex').focus();
 }
 
 function toHtml(raw) {

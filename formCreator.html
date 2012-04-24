@@ -1,19 +1,50 @@
 <!DOCTYPE HTML>
+<!-- 
+	This file is part of FormCreator.
+
+	Copyright 2012 Remy Gardette
+
+	FormCreator is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as 
+	published by the Free Software Foundation, either version 3 of 
+	the License, or (at your option) any later version.
+
+	FormCreator is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public License
+	along with FormCreator.  If not, see <http://www.gnu.org/licenses/>.
+-->
 <html>
 
 <head>
 
+<title>Form Creator</title>
+
 <link rel="stylesheet" type="text/css" href="formCreator.css" />
 
 <script src="formCreator.js"></script>
+
+<meta name="author" content="Remy Gardette" />
 
 </head>
 
 <body>
 
 <div class="header">
-	<div class="title">Form Creator</div>
+	<header class="inner">
+		<a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a>
+		<div class="title">Form Creator</div>
+		<div class="links">
+		<a class="about_link" href="README">Readme</a>
+		<a class="about_link" href="COPYING.LESSER">License</a>
+		</div>
+	</header>
 </div>
+
+<div class="body">
 
 <form>
 
@@ -25,14 +56,15 @@
 	<div class="input_entry">
 		<label for="form_method">Method</label>
 		<select id="form_method">
-		<option id="form_method_post" value="post">Post</option>
-		<option id="form_method_get" value="get">Get</option>
+			<option id="form_method_post" value="post">Post</option>
+			<option id="form_method_get" value="get">Get</option>
 		</select>
 	</div>
 
 	<div class="input_entry">
 		<label for="form_regex">Parameters as Regex</label>
-		<input type="text" id="form_regex" />
+		<input type="text" id="form_regex" style="width: 600px;" />
+		<span id="add_capture_group" class="link_like" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
 	</div>
 
 	<div class="input_entry">
@@ -40,28 +72,33 @@
 		<textarea id="form_parameters"></textarea>
 	</div>
 
-	<div class="input_entry_buttons">
-		<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
-		<div class="button" id="clear_all" style="float: right" onClick="javascript:clearAll();">Clear</div>
-	</div>
+	
 
 </form>
 
-<div class="result" id="form_result" style="display: none">
-	<label for="form_result_textarea">Result</label><br/>
-	<textarea id="form_result_textarea"></textarea>
-	<div id="form_result_form"></div>
+<div class="input_entry_buttons">
+	<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
+	<div class="button" id="clear_all" style="float: right" onClick="javascript:clearAll();">Clear</div>
+</div>
+
+<div>
+	<div class="result" id="form_result" style="display: none">
+		<label for="form_result_textarea">Result</label><br/>
+		<textarea id="form_result_textarea"></textarea>
+		<div id="form_result_form"></div>
+	</div>
 </div>
 
 <div class="footer">
-	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-		<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" />
-	</a>
-	<br />
-	This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>
+	Copyright 2012 <a href="http://remy-gardette.fr">Remy Gardette</a>
+	-
+	Released under the <a href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public License</a>
 	<br/>
-	Created by <a href="http://remy-gardette.fr">Remy Gardette</a>. 
 	The sources can be found at <a href="https://github.com/RemyG/FormCreator">https://github.com/RemyG/FormCreator</a>
+	<br/>
+	You can contact me at <a href="mailto:contact@remy-gardette.fr?subject=Contact FormCreator">contact@remy-gardette.fr</a>
+</div>
+
 </div>
 
 </body>
