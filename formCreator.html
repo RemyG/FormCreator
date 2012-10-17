@@ -23,7 +23,9 @@
 
 <title>Form Creator</title>
 
-<link rel="stylesheet" type="text/css" href="formCreator.css" />
+<!--<link rel="stylesheet" type="text/css" href="formCreator.css" />-->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 <script src="formCreator.js"></script>
 
@@ -33,28 +35,99 @@
 
 <body>
 
-<div class="header">
-	<header class="inner">
-		<a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a>
-		<div class="title">Form Creator</div>
-		<div class="links">
-		<a class="about_link" href="README">Readme</a>
-		<a class="about_link" href="COPYING.LESSER">License</a>
+<!--<a id="tooCool" href="http://www.w3junkies.com/toocool/">Too Cool for Internet Explorer</a>-->
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="">Form Creator</a>
+			<ul class="nav pull-right">
+				<li><a class="about_link" href="COPYING.LESSER">License</a></li>
+				<li><a id="modalOpen" href="#">Readme</a></li>
+				<li><a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a></li>
+			</ul>
 		</div>
-	</header>
+	</div>
 </div>
 
-<div class="body">
+<div class="container">
 
-<form>
+<form class="form-horizontal">
 
+	<div class="control-group">
+		<label class="control-label" for="form_action">
+			Action 
+			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies where to send the form-data when the form is submitted."><i class="icon-question-sign"></i></a>
+		</label>		
+		<div class="controls">
+			<input type="text" id="form_action" placeholder="Action" class="span8">
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="form_method">
+			Method
+			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies the HTTP method to use when sending form-data."><i class="icon-question-sign"></i></a>
+		</label>
+		<div class="controls">
+			<select id="form_method">
+				<option id="form_method_post" value="post">Post</option>
+				<option id="form_method_get" value="get">Get</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="form_regex">
+			Parameters as Regex
+			<a data-placement="right" rel="tooltip" href="#" data-original-title="A regular expression matching your parameters structure and capturing them in pairs name/value."><i class="icon-question-sign"></i></a>
+		</label>
+		<div class="controls">
+			<input type="text" id="form_regex" placeholder="Parameters as Regex" class="span6">
+			<span id="add_capture_group" class="btn btn-link" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="form_action">
+			Parameters
+			<a data-placement="right" rel="tooltip" href="#" data-original-title="The data used in the form, as defined by the Regex input."><i class="icon-question-sign"></i></a>	
+		</label>
+		<div class="controls">
+			<textarea id="form_parameters" placeholder="Parameters" class="span8" rows="10"></textarea>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<div class="btn btn-primary" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
+			<div class="btn" id="clear_all" onClick="javascript:clearAll();">Clear</div>
+		</div>
+	</div>
+<!--
 	<div class="input_entry">
-		<label for="form_action">Action</label>
+		<div class="label">
+			<label for="form_action">Action</label>
+			<span class="tooltip">
+				<img src="help.png" class="help_icon" />
+				<span class="classic">
+					Specifies where to send the form-data when the form is submitted.
+				</span>
+			</span>
+		</div>
 		<input type="text" id="form_action" />
 	</div>
 
 	<div class="input_entry">
-		<label for="form_method">Method</label>
+		<div class="label">
+			<label for="form_method">Method</label>
+			<span class="tooltip">
+				<img src="help.png" class="help_icon" />
+				<span class="classic">
+					Specifies the HTTP method to use when sending form-data.
+				</span>
+			</span>
+		</div>
 		<select id="form_method">
 			<option id="form_method_post" value="post">Post</option>
 			<option id="form_method_get" value="get">Get</option>
@@ -62,35 +135,57 @@
 	</div>
 
 	<div class="input_entry">
-		<label for="form_regex">Parameters as Regex</label>
+		<div class="label">
+			<label for="form_regex">Parameters as Regex</label>
+			<span class="tooltip">
+				<img src="help.png" class="help_icon" />
+				<span class="classic">
+					A regular expression matching your parameters structure and capturing them in pairs name/value.
+				</span>
+			</span>
+		</div>
 		<input type="text" id="form_regex" style="width: 600px;" />
 		<span id="add_capture_group" class="link_like" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
 	</div>
 
 	<div class="input_entry">
-		<label for="form_parameters">Parameters</label>
+		<div class="label">
+			<label for="form_parameters">Parameters</label>
+			<span class="tooltip">
+				<img src="help.png" class="help_icon" />
+				<span class="classic">
+					The data used in the form, as defined by the Regex input.
+				</span>
+			</span>
+		</div>
 		<textarea id="form_parameters"></textarea>
 	</div>
-
+-->
 	
 
 </form>
 
-<div class="input_entry_buttons">
-	<div class="button" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
-	<div class="button" id="clear_all" style="float: right" onClick="javascript:clearAll();">Clear</div>
+
+<div class="result" id="form_result" style="display: none">
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="form_result_textarea">Result</label>
+			<div class="controls">
+				<textarea id="form_result_textarea" class="form_result span8" rows="10"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<div id="form_result_form"></div>
+			</div>
+		</div>				
+	</form>
 </div>
 
-<div>
-	<div class="result" id="form_result" style="display: none">
-		<label for="form_result_textarea">Result</label><br/>
-		<textarea id="form_result_textarea"></textarea>
-		<div id="form_result_form"></div>
-	</div>
 </div>
 
-<div class="footer">
-	Copyright 2012 <a href="http://remy-gardette.fr">Remy Gardette</a>
+<div class="container footer">
+	Copyright 2012 <a href="http://remyg.fr">Remy Gardette</a>
 	-
 	Released under the <a href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public License</a>
 	<br/>
@@ -99,7 +194,63 @@
 	You can contact me at <a href="mailto:contact@remy-gardette.fr?subject=Contact FormCreator">contact@remy-gardette.fr</a>
 </div>
 
+<div class="modal" id="ModalReadme" tabindex="-1" role="dialog" aria-labelledby="ModalReadmeLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+		<h3 id="ModalReadmeLabel">Readme</h3>
+	</div>
+	<div class="modal-body">
+		<h4>About</h4>
+		<p>This software is meant to create HTML forms with hidden inputs.<br/>
+		The parameters are transformed to hidden inputs in the form.<br/>
+		This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.</p>
+
+		<h4>How to</h4>
+		<ul>
+			<li>Put the right values in the Action and Method fields.</li>
+			<li>Put a regular expression matching your parameters structure and capturing them in pairs name/value.<br/>
+				Ex: to capture the name and value of "PARAMETER :: control=12 "
+				<ul>
+					<li>put a regexp like "PARAMETER :: (.+?)=(.*) "</li>
+					<li>the first capturing expression will be inserted as the name of the input, and the second as its value.</li>
+				</ul>
+			</li>
+			<li>Put you parameters list in the text zone.</li>
+			<li>Click "Create form".</li>
+			<li>Enjoy</li>
+		</ul>
+
+		<h4>License</h4>
+
+		<p>Copyright 2012 Remy Gardette</p>
+
+		<p>FormCreator is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+
+		<p>FormCreator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</p>
+
+		<p>You should have received a copy of the GNU Lesser General Public License along with FormCreator.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
 </div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$("[rel=tooltip]").tooltip();
+
+	$('#modalOpen').click(function($e) {
+		$e.preventDefault();
+		$('#ModalReadme').modal('show')
+	});
+
+});
+</script>
+
 
 </body>
 

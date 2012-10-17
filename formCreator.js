@@ -63,7 +63,7 @@ function parseFormStructure() {
 	}
 
 	formFooter += indent + "<input type='submit' />\n";
-	formHiddenFooter += indent + "<div class='button' onClick='javascript:document.myform.submit();'>Submit</div>\n";
+	formHiddenFooter += indent + "<div class='btn btn-success' onClick='javascript:document.myform.submit();'>Submit</div>\n";
 
 	formFooter += "</form>";
 	formHiddenFooter += "</form>";

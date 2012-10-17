@@ -1,0 +1,24 @@
+body {
+	padding-top: 80px;
+}
+
+div.footer {
+	margin-top: 15px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 11px;
+}
+
+textarea.form_result {
+	font-family: "Courier New",Courier,monospace;
+	font-size: 0.85em;
+}
+
+#forkme_banner {
+	background-color: #0090FF;
+	color: white;
+}
+
+div.navbar-inner {
+	border: 0;
+}
