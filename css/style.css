@@ -1,5 +1,15 @@
+/*
+	This file is part of FormCreator.
+
+	Copyright (c) 2012-2013 Remy Gardette
+
+	This software has been released under the MIT License. 
+	You should have received a copy of the MIT License along with this software. 
+	If not, see <>http://opensource.org/licenses/MIT>.
+*/
+
 body {
-	padding-top: 80px;
+	/*padding-top: 80px;*/
 }
 
 div.footer {
