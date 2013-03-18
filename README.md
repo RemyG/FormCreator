@@ -15,6 +15,10 @@ This software is still in development, and is meant as a tool for creating multi
 * Click "Create form".
 * Enjoy
 
+## Demo
+
+You can find a demo version at [http://formcreator.remyg.fr](http://formcreator.remyg.fr)
+
 ## License
 
 This application is released under the MIT License.
