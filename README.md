@@ -1,3 +1,5 @@
+# FormCreator
+
 ## About
 
 This software is meant to create HTML forms with hidden inputs.
@@ -7,10 +9,9 @@ This software is still in development, and is meant as a tool for creating multi
 ## How to
 
 * Put the right values in the Action and Method fields.
-* Put a regular expression matching your parameters structure and capturing them in pairs name/value.
-    >**Ex:** to capture the name and value of "PARAMETER :: control=12 "  
-	>- put a regexp like "PARAMETER :: (.+?)=(.*) "  
-	>- the first capturing expression will be inserted as the name of the input, and the second as its value.
+* Put a regular expression matching your parameters structure and capturing them in pairs name/value. **Ex:** to capture the name and value of "PARAMETER :: control=12 "  
+	* put a regexp like "PARAMETER :: (.+?)=(.*) "  
+	* the first capturing expression will be inserted as the name of the input, and the second as its value.
 * Put you parameters list in the text zone.
 * Click "Create form".
 * Enjoy
