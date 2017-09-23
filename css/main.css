@@ -386,9 +386,9 @@ html, body {
 
 a {
   text-decoration: none;
-  color: #133253; }
+  color: #661141; }
   a:hover {
-    color: #021121; }
+    color: #460128; }
 
 #github-banner img {
   position: absolute;
@@ -405,7 +405,7 @@ a {
 nav.top-bar {
   /*height: $header-height;*/
   line-height: 40px;
-  background-color: #133253; }
+  background-color: #661141; }
   nav.top-bar * {
     line-height: 40px;
     font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -413,7 +413,7 @@ nav.top-bar {
   nav.top-bar a, nav.top-bar i {
     color: #fff; }
     nav.top-bar a:hover, nav.top-bar i:hover {
-      background-color: #021121; }
+      background-color: #460128; }
   nav.top-bar ul.title-area a {
     font-size: 20px;
     font-weight: bold; }

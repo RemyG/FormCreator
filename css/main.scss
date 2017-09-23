@@ -1,15 +1,15 @@
 @import "unsemantic-grid-responsive-tablet-no-ie7.css";
 @import "normalize.scss";
 
-$blue-color: #133253;
-$blue-color-hover: #021121;
+$purple-color: #66141;
+$purple-color-hover: #460128;
 
 $title-font: 'Droid Sans', Helvetica, Arial, sans-serif;
 
 $header-height: 40px;
 
-$link-color: $blue-color;
-$link-color-hover: $blue-color-hover;
+$link-color: $purple-color;
+$link-color-hover: $purple-color-hover;
 
 /*$header-font: 'Droid Serif', Georgia, Times, serif;*/
 $header-font: 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -71,9 +71,9 @@ html, body {
 
 a {
     text-decoration: none;
-    color: $blue-color;
+    color: $purple-color;
     &:hover {
-        color: $blue-color-hover;
+        color: $purple-color-hover;
     }
 }
 
@@ -97,7 +97,7 @@ a {
 nav.top-bar {
     /*height: $header-height;*/
     line-height: $header-height;
-    background-color: $blue-color;
+    background-color: $purple-color;
     * {
         line-height: $header-height;
         font-family: $title-font;
@@ -106,7 +106,7 @@ nav.top-bar {
     a, i {
         color: #fff;
         &:hover {
-            background-color: $blue-color-hover;
+            background-color: $purple-color-hover;
         }
     }
     ul.title-area {
