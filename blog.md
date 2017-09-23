@@ -9,7 +9,7 @@ title: Blog Posts
 	<header>
 		<div class="post-title">
 			<h1>
-				<a title="Permalink to {{ post.title }}" href="{{ site.baseurl }}{{post.url}}/">{{ post.title }}</a>
+				<a title="Permalink to {{ post.title }}" href="{{ site.baseurl }}{{post.url}}">{{ post.title }}</a>
 				{% if post.tagline %}<small> - {{post.tagline}}</small>{% endif %}
 			</h1>
 		</div>
@@ -20,7 +20,7 @@ title: Blog Posts
 			</div>
 			<div class="comments-heading right">
 				<i class="icon-comments"> </i>
-				<a href="{{ site.baseurl }}{{ post.url }}/#disqus_thread">Comments</a>
+				<a href="{{ site.baseurl }}{{ post.url }}#disqus_thread">Comments</a>
 			</div>
 		</div>
 	</header>
