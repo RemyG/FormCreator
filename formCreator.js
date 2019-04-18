@@ -21,14 +21,12 @@ function parseFormStructure() {
 	formHeader += "method='"+escapeHtml(formMethod)+"' ";
 	var formHiddenHeader = formHeader + "target='_blank' name='myform' ";
 	formHeader += ">\n";
-	formHiddenHeader += ">\n";
+	formHiddenHeader += ">";
 
 	var formContent = "";
 
 	var formFooter = "";
 	var formHiddenFooter = "";
-
-	
 
 	var formParameterRegex = document.getElementById('form_regex').value;
 
@@ -54,7 +52,7 @@ function parseFormStructure() {
 	}
 
 	formFooter += indent + "<input type='submit' />\n";
-	formHiddenFooter += indent + "<div class='btn btn-success' onClick='javascript:document.myform.submit();'>Submit</div>\n";
+	formHiddenFooter += indent + "<div class='btn btn-success' onClick='javascript:document.myform.submit();'>Submit</div>";
 
 	formFooter += "</form>";
 	formHiddenFooter += "</form>";
@@ -92,7 +90,7 @@ function toHtml(raw) {
 }
 
 function escapeHtml(unsafe) {
-	return unsafe;
+	//return unsafe;
   return unsafe
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")

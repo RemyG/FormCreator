@@ -8,8 +8,45 @@
 	If not, see <>http://opensource.org/licenses/MIT>.
 */
 
+
 body {
 	/*padding-top: 80px;*/
+}
+
+div.navbar {
+	overflow: hidden;
+	background: rgba(0,0,0,0.7);
+	margin-bottom: 30px;
+}
+
+div.navbar a {
+	color: #fff;
+}
+
+div.navbar div {
+	overflow: hidden;
+}
+
+div.navbar a.brand {
+	display: inline-block;
+	padding: 20px 0;
+	text-decoration: none;
+}
+
+div.navbar ul {
+	float: right;
+	margin: 0;
+}
+
+div.navbar ul li {
+	display: inline-block;
+	text-decoration: none;
+}
+
+div.navbar ul li a {
+	padding: 20px 10px;
+	text-decoration: none;
+	display: inline-block;
 }
 
 div.footer {
@@ -19,7 +56,7 @@ div.footer {
 	font-size: 11px;
 }
 
-textarea.form_result {
+textarea#form_result_textarea {
 	font-family: "Courier New",Courier,monospace;
 	font-size: 0.85em;
 }
@@ -29,6 +66,87 @@ textarea.form_result {
 	color: white;
 }
 
-div.navbar-inner {
-	border: 0;
+.form-field {
+	width: 100%;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 0.85em;
+}
+
+textarea {
+	padding: 5px;
+}
+
+.tooltip-anchor {
+	position: absolute;
+	bottom: 4px;
+}
+
+.tooltip-anchor .sign {
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	padding: 0px;
+	background: #666;
+	border: 1px solid #666;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.6em;
+	font-weight: bold;
+}
+
+[tooltip]{
+	/*margin:20px 60px;*/	
+	position:relative;
+	display:inline-block;
+}
+[tooltip]::before {
+	content: "";
+	position: absolute;
+	top:-6px;
+	left:50%;
+	transform: translateX(-50%);
+	border-width: 4px 6px 0 6px;
+	border-style: solid;
+	border-color: rgba(0,0,0,0.7) transparent transparent     transparent;
+	z-index: 99;
+	opacity:0;
+}
+
+[tooltip-position='right']::before{
+	left:100%;
+	top:50%;
+	margin-left:1px;
+	transform:translatey(-50%) rotate(90deg)
+}
+
+[tooltip]::after {
+	content: attr(tooltip);
+	position: absolute;
+	left:50%;
+	top:-6px;
+	transform: translateX(-50%)   translateY(-100%);
+	background: rgba(0,0,0,0.8);
+	text-align: center;
+	color: #fff;
+	padding:4px 2px;
+	font-size: 12px;
+	min-width: 160px;
+	max-width: 200px;
+	border-radius: 5px;
+	pointer-events: none;
+	padding: 4px 4px;
+	z-index:99;
+	opacity:0;
+}
+
+[tooltip-position='right']::after{
+	left:100%;
+	top:50%;
+	margin-left:8px;
+	transform: translateX(0%)   translateY(-50%);
+}
+
+[tooltip]:hover::after,[tooltip]:hover::before {
+	opacity:1
 }

@@ -17,7 +17,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--<link rel="stylesheet" type="text/css" href="formCreator.css" />-->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+<link rel="stylesheet" type="text/css" href="css/simple-grid.css">
 <link href="css/style.css" rel="stylesheet">
 
 <script src="formCreator.js"></script>
@@ -30,155 +31,107 @@
 
 <!--<a id="tooCool" href="http://www.w3junkies.com/toocool/">Too Cool for Internet Explorer</a>-->
 
-<div class="navbar navbar-inverse">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="">Form Creator</a>
-			<ul class="nav pull-right">
-				<li><a class="about_link" href="LICENSE">License</a></li>
-				<li><a id="modalOpen" href="#">Readme</a></li>
-				<li><a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a></li>
-			</ul>
-		</div>
+<div class="navbar">
+	<div class="container">
+		<a class="brand" href="">Form Creator</a>
+		<ul class="nav">
+			<li><a class="about_link" href="LICENSE">License</a>
+			</li><li><a id="modalOpen" href="#">Readme</a>
+			</li><li><a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a></li>
+		</ul>
 	</div>
 </div>
 
 <div class="container">
-
-<form class="form-horizontal">
-
-	<div class="control-group">
-		<label class="control-label" for="form_action">
-			Action 
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies where to send the form-data when the form is submitted."><i class="icon-question-sign"></i></a>
-		</label>		
-		<div class="controls">
-			<input type="text" id="form_action" placeholder="Action" class="span8">
+	<div class="row">
+		<div class="col-3">
+			<label class="form-label" for="form_action">
+				Action 
+				<span class="tooltip-anchor" 
+					rel="tooltip"						
+					tooltip="Specifies where to send the form-data when the form is submitted."
+					tooltip-position="right"><span class="sign">?</span></span>
+			</label>
+		</div>
+		<div class="col-9">
+			<input type="text" id="form_action" placeholder="Action" class="form-field">
 		</div>
 	</div>
-
-	<div class="control-group">
-		<label class="control-label" for="form_method">
-			Method
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies the HTTP method to use when sending form-data."><i class="icon-question-sign"></i></a>
-		</label>
-		<div class="controls">
-			<select id="form_method">
+	<div class="row">
+		<div class="col-3">
+			<label class="form-label" for="form_method">
+				Method
+				<span class="tooltip-anchor"
+					rel="tooltip"
+					tooltip="Specifies the HTTP method to use when sending form-data."
+					tooltip-position="right"><span class="sign">?</span></span>
+			</label>
+		</div>
+		<div class="col-3">
+			<select id="form_method" class="form-field">
 				<option id="form_method_post" value="post">Post</option>
 				<option id="form_method_get" value="get">Get</option>
 			</select>
 		</div>
 	</div>
-
-	<div class="control-group">
-		<label class="control-label" for="form_regex">
-			Parameters as Regex
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="A regular expression matching your parameters structure and capturing them in pairs name/value."><i class="icon-question-sign"></i></a>
-		</label>
-		<div class="controls">
-			<input type="text" id="form_regex" placeholder="Parameters as Regex" class="span6">
-			<span id="add_capture_group" class="btn btn-link" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
+	<div class="row">
+		<div class="col-3">
+			<label class="form-label" for="form_regex">
+				Parameters as Regex
+				<span class="tooltip-anchor"
+					rel="tooltip"
+					tooltip="A regular expression matching your parameters structure and capturing them in pairs name/value."
+					tooltip-position="right"><span class="sign">?</span></span>
+			</label>
+		</div>
+		<div class="col-5">
+			<input type="text" id="form_regex" placeholder="Parameters as Regex"  class="form-field">
+		</div>
+		<div class="col-4">
+			<span id="add_capture_group" class="btn btn-link" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capturing group</span>
 		</div>
 	</div>
-
-	<div class="control-group">
-		<label class="control-label" for="form_action">
-			Parameters
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="The data used in the form, as defined by the Regex input."><i class="icon-question-sign"></i></a>	
-		</label>
-		<div class="controls">
-			<textarea id="form_parameters" placeholder="Parameters" class="span8" rows="10"></textarea>
+	<div class="row">
+		<div class="col-3">
+			<label class="form-label" for="form_action">
+				Parameters
+				<span class="tooltip-anchor"
+					rel="tooltip"
+					tooltip="The data used in the form, as defined by the Regex input. Needs 2 capturing groups."
+					tooltip-position="right"><span class="sign">?</span></span>
+			</label>
+		</div>
+		<div class="col-9">
+			<textarea id="form_parameters" placeholder="Parameters"  class="form-field" rows="10"></textarea>
 		</div>
 	</div>
-
-	<div class="control-group">
-		<div class="controls">
-			<div class="btn btn-primary" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
-			<div class="btn" id="clear_all" onClick="javascript:clearAll();">Clear</div>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-9">
+			<div class="btn btn-primary" id="create_form" onclick="javascript:parseFormStructure();">Create form</div>
+			<div class="btn" id="clear_all" onclick="javascript:clearAll();">Clear</div>
 		</div>
 	</div>
-<!--
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_action">Action</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					Specifies where to send the form-data when the form is submitted.
-				</span>
-			</span>
+	<div class="row result" id="form_result" style="display: none;">
+		<div class="col-3">
+			<label class="form-label" for="form_result_textarea">Result</label>
 		</div>
-		<input type="text" id="form_action" />
-	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_method">Method</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					Specifies the HTTP method to use when sending form-data.
-				</span>
-			</span>
+		<div class="col-9">
+			<textarea id="form_result_textarea" class="form-field" rows="10"></textarea>
 		</div>
-		<select id="form_method">
-			<option id="form_method_post" value="post">Post</option>
-			<option id="form_method_get" value="get">Get</option>
-		</select>
 	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_regex">Parameters as Regex</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					A regular expression matching your parameters structure and capturing them in pairs name/value.
-				</span>
-			</span>
-		</div>
-		<input type="text" id="form_regex" style="width: 600px;" />
-		<span id="add_capture_group" class="link_like" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
-	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_parameters">Parameters</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					The data used in the form, as defined by the Regex input.
-				</span>
-			</span>
-		</div>
-		<textarea id="form_parameters"></textarea>
-	</div>
--->
-	
-
-</form>
-
-
-<div class="result" id="form_result" style="display: none">
-	<form class="form-horizontal">
-		<div class="control-group">
-			<label class="control-label" for="form_result_textarea">Result</label>
-			<div class="controls">
-				<textarea id="form_result_textarea" class="form_result span8" rows="10"></textarea>
+	<div class="row result">
+			<div class="col-3">
 			</div>
-		</div>
-		<div class="control-group">
-			<div class="controls">
+			<div class="col-9">
 				<div id="form_result_form"></div>
 			</div>
-		</div>				
-	</form>
-</div>
+		</div>
 
 </div>
 
 <div class="container footer">
-	Copyright (c) 2012-2013 <a href="http://remyg.fr">R&eacute;my Gardette</a>
+	Copyright (c) 2012-2018 <a href="https://remyg.fr">R&eacute;my Gardette</a>
 	-
 	Released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>
 	<br/>
@@ -226,9 +179,6 @@
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 	</div>
 </div>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
