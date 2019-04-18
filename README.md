@@ -1,9 +1,12 @@
 # FormCreator
 
+![FormCreator Logo](formcreator.png)
+
 ## About
 
 This software is meant to create HTML forms with hidden inputs.
 The parameters are transformed to hidden inputs in the form.
+
 This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.
 
 ## How to
@@ -18,13 +21,13 @@ This software is still in development, and is meant as a tool for creating multi
 
 ## Demo
 
-You can find a demo version at [http://formcreator.remyg.fr](http://formcreator.remyg.fr)
+You can find a demo version at [https://formcreator.remyg.fr](https://formcreator.remyg.fr)
 
 ## License
 
 This application is released under the MIT License.
 
-Copyright (c) 2012-2013 Remy Gardette
+Copyright (c) 2012-2019 Rémy Gardette
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

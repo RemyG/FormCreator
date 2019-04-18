@@ -2,7 +2,7 @@
 <!-- 
 	This file is part of FormCreator.
 
-	Copyright (c) 2012-2013 Remy Gardette
+	Copyright (c) 2012-2019 Remy Gardette
 
 	This software has been released under the MIT License. 
 	You should have received a copy of the MIT License along with this software. 
@@ -15,12 +15,13 @@
 <title>Form Creator</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-<!--<link rel="stylesheet" type="text/css" href="formCreator.css" />-->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
 <link href="css/style.css" rel="stylesheet">
-
-<script src="formCreator.js"></script>
 
 <meta name="author" content="Remy Gardette" />
 
@@ -30,214 +31,206 @@
 
 <!--<a id="tooCool" href="http://www.w3junkies.com/toocool/">Too Cool for Internet Explorer</a>-->
 
-<div class="navbar navbar-inverse">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="">Form Creator</a>
-			<ul class="nav pull-right">
-				<li><a class="about_link" href="LICENSE">License</a></li>
-				<li><a id="modalOpen" href="#">Readme</a></li>
-				<li><a id="forkme_banner" href="https://github.com/RemyG/FormCreator">Fork Me on GitHub</a></li>
-			</ul>
-		</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+	<div class="container">
+	<a class="navbar-brand" href="#">
+		<img src="formcreator-small.png" height="50" alt="FormCreator">
+	</a>
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a class="nav-link" href="#readme">How to</a></li>
+			<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+			<li class="nav-item"><a class="nav-link" href="#license">License</a></li>
+			<li class="nav-item"><a class="nav-link" id="forkme_banner" href="https://github.com/RemyG/FormCreator"><i class="fab fa-github"></i> Fork Me on GitHub</a></li>
+		</ul>
 	</div>
 </div>
+</nav>
 
 <div class="container">
 
-<form class="form-horizontal">
+<form>
 
-	<div class="control-group">
-		<label class="control-label" for="form_action">
-			Action 
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies where to send the form-data when the form is submitted."><i class="icon-question-sign"></i></a>
+	<div class="form-group row">
+		<label class="col-sm-3 col-form-label with-tooltip" for="form_action">
+			Action
+			<i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="Specifies where to send the form-data when the form is submitted."></i>
 		</label>		
-		<div class="controls">
-			<input type="text" id="form_action" placeholder="Action" class="span8">
+		<div class="col-sm-9">
+			<input type="text" id="form_action" class="form-control" placeholder="Action">
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label class="control-label" for="form_method">
+	<div class="form-group row">
+		<label class="col-sm-3 col-form-label with-tooltip" for="form_method">
 			Method
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="Specifies the HTTP method to use when sending form-data."><i class="icon-question-sign"></i></a>
+			<i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="Specifies the HTTP method to use when sending form-data."></i>
 		</label>
-		<div class="controls">
-			<select id="form_method">
-				<option id="form_method_post" value="post">Post</option>
-				<option id="form_method_get" value="get">Get</option>
+		<div class="col-sm-3">
+			<select id="form_method" class="custom-select">
+				<option id="form_method_post" value="post">POST</option>
+				<option id="form_method_get" value="get">GET</option>
 			</select>
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label class="control-label" for="form_regex">
+	<div class="form-group row">
+		<label class="col-sm-3 col-form-label with-tooltip" for="form_regex">
 			Parameters as Regex
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="A regular expression matching your parameters structure and capturing them in pairs name/value."><i class="icon-question-sign"></i></a>
+			<i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="A regular expression matching your parameters structure and capturing them in pairs name/value."></i>
 		</label>
-		<div class="controls">
-			<input type="text" id="form_regex" placeholder="Parameters as Regex" class="span6">
+		<div class="col-sm-9">
+			<input type="text" id="form_regex" class="form-control" placeholder="Parameters as Regex">
 			<span id="add_capture_group" class="btn btn-link" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label class="control-label" for="form_action">
+	<div class="form-group row">
+		<label class="col-sm-3 col-form-label with-tooltip" for="form_action">
 			Parameters
-			<a data-placement="right" rel="tooltip" href="#" data-original-title="The data used in the form, as defined by the Regex input."><i class="icon-question-sign"></i></a>	
+			<i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="The data used in the form, as defined by the Regex input."></i>
 		</label>
-		<div class="controls">
-			<textarea id="form_parameters" placeholder="Parameters" class="span8" rows="10"></textarea>
+		<div class="col-sm-9">
+			<textarea id="form_parameters" class="form-control" placeholder="Parameters" rows="10"></textarea>
 		</div>
 	</div>
 
-	<div class="control-group">
-		<div class="controls">
-			<div class="btn btn-primary" id="create_form" onClick="javascript:parseFormStructure();">Create form</div>
-			<div class="btn" id="clear_all" onClick="javascript:clearAll();">Clear</div>
+	<div class="form-group row justify-content-end">
+		<div class="col-sm-9">
+			<div class="btn btn-primary" id="create_form" onclick="javascript:parseFormStructure();">Create form</div>
+			<div class="btn" id="clear_all" onclick="javascript:clearAll();">Clear</div>
 		</div>
 	</div>
-<!--
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_action">Action</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					Specifies where to send the form-data when the form is submitted.
-				</span>
-			</span>
-		</div>
-		<input type="text" id="form_action" />
-	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_method">Method</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					Specifies the HTTP method to use when sending form-data.
-				</span>
-			</span>
-		</div>
-		<select id="form_method">
-			<option id="form_method_post" value="post">Post</option>
-			<option id="form_method_get" value="get">Get</option>
-		</select>
-	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_regex">Parameters as Regex</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					A regular expression matching your parameters structure and capturing them in pairs name/value.
-				</span>
-			</span>
-		</div>
-		<input type="text" id="form_regex" style="width: 600px;" />
-		<span id="add_capture_group" class="link_like" style="padding:0 20px;" onclick="javascript:addCaptureGroup();">Add capture group</span>
-	</div>
-
-	<div class="input_entry">
-		<div class="label">
-			<label for="form_parameters">Parameters</label>
-			<span class="tooltip">
-				<img src="help.png" class="help_icon" />
-				<span class="classic">
-					The data used in the form, as defined by the Regex input.
-				</span>
-			</span>
-		</div>
-		<textarea id="form_parameters"></textarea>
-	</div>
--->
-	
-
 </form>
 
 
 <div class="result" id="form_result" style="display: none">
-	<form class="form-horizontal">
-		<div class="control-group">
-			<label class="control-label" for="form_result_textarea">Result</label>
-			<div class="controls">
-				<textarea id="form_result_textarea" class="form_result span8" rows="10"></textarea>
-			</div>
+	<div class="form-group row">
+		<label class="col-sm-3 col-form-label" for="form_result_textarea">Result</label>
+		<div class="col-sm-9">
+			<textarea id="form_result_textarea" class="form-control" rows="10" readonly></textarea>
 		</div>
-		<div class="control-group">
-			<div class="controls">
-				<div id="form_result_form"></div>
-			</div>
-		</div>				
-	</form>
+	</div>
+	<div class="form-group row justify-content-end">
+		<div class="col-sm-9">
+			<div id="form_result_form"></div>
+		</div>
+	</div>
 </div>
 
 </div>
 
 <div class="container footer">
-	Copyright (c) 2012-2013 <a href="http://remyg.fr">R&eacute;my Gardette</a>
+	Copyright (c) 2012-2019 <a href="https://remyg.fr">R&eacute;my Gardette</a>
 	-
 	Released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>
 	<br/>
 	The sources can be found at <a href="https://github.com/RemyG/FormCreator">https://github.com/RemyG/FormCreator</a>
 </div>
 
-<div class="modal" id="ModalReadme" tabindex="-1" role="dialog" aria-labelledby="ModalReadmeLabel" aria-hidden="true" style="display: none;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-		<h3 id="ModalReadmeLabel">Readme</h3>
-	</div>
-	<div class="modal-body">
-		<h4>About</h4>
-		<p>This software is meant to create HTML forms with hidden inputs.<br/>
-		The parameters are transformed to hidden inputs in the form.<br/>
-		This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.</p>
-
-		<h4>How to</h4>
-		<ul>
-			<li>Put the right values in the Action and Method fields.</li>
-			<li>Put a regular expression matching your parameters structure and capturing them in pairs name/value.<br/>
-				Ex: to capture the name and value of "PARAMETER :: control=12 "
-				<ul>
-					<li>put a regexp like "PARAMETER :: (.+?)=(.*) "</li>
-					<li>the first capturing expression will be inserted as the name of the input, and the second as its value.</li>
-				</ul>
-			</li>
-			<li>Put you parameters list in the text zone.</li>
-			<li>Click "Create form".</li>
-			<li>Enjoy</li>
-		</ul>
-
-		<h4>License</h4>
-
-		<p>Copyright (c) 2012-2013 Remy Gardette</p>
-
-		<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-		<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-		<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="modalAboutLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="nodalAboutLabel">About</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div><img class="logo" src="formcreator-small.png" alt="FormCreator"></div>
+				<p>This software is meant to create HTML forms with hidden inputs.</p>
+				<p>The parameters are transformed to hidden inputs in the form.</p>
+				<p>This software is still in development, and is meant as a tool for creating multiple HTML forms from lists of parameters with the same structure.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
 	</div>
 </div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<div class="modal fade" id="readme" tabindex="-1" role="dialog" aria-labelledby="modalReadmeLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalReadmeLabel">How to</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<ul>
+					<li>Put the right values in the Action and Method fields.</li>
+					<li>Put a regular expression matching your parameters structure and capturing them in pairs name/value.<br/>
+						Ex: to capture the name and value of "PARAMETER :: control=12 "
+						<ul>
+							<li>put a regexp like "PARAMETER :: (.+?)=(.*) "</li>
+							<li>the first capturing expression will be inserted as the name of the input, and the second as its value.</li>
+						</ul>
+					</li>
+					<li>Put you parameters list in the text zone.</li>
+					<li>Click "Create form".</li>
+					<li>Enjoy</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="license" tabindex="-1" role="dialog" aria-labelledby="modalLicenseLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLicenseLabel">License</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>License</h4>
+
+				<p>Copyright (c) 2012-2019 R&eacute;my Gardette</p>
+
+				<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+				<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+				<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/formCreator.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
 	
-	$("[rel=tooltip]").tooltip();
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
 
-	$('#modalOpen').click(function($e) {
-		$e.preventDefault();
-		$('#ModalReadme').modal('show')
+	$('a[href$="#readme"]').on( "click", function() {
+		$('#readme').modal('show');
+	});
+
+	$('a[href$="#about"]').on( "click", function() {
+		$('#about').modal('show');
+	});
+
+	$('a[href$="#license"]').on( "click", function() {
+		$('#license').modal('show');
 	});
 
 });

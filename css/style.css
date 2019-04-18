@@ -1,16 +1,12 @@
 /*
 	This file is part of FormCreator.
 
-	Copyright (c) 2012-2013 Remy Gardette
+	Copyright (c) 2012-2019 Remy Gardette
 
 	This software has been released under the MIT License. 
 	You should have received a copy of the MIT License along with this software. 
 	If not, see <>http://opensource.org/licenses/MIT>.
 */
-
-body {
-	/*padding-top: 80px;*/
-}
 
 div.footer {
 	margin-top: 15px;
@@ -29,6 +25,20 @@ textarea.form_result {
 	color: white;
 }
 
-div.navbar-inner {
-	border: 0;
+label {
+	text-align: right;
+}
+
+img.logo {
+	display: block;
+	margin: 0 auto;
+	max-width: 90%;
+	margin-bottom: 20px;
+}
+
+nav {
+	background-color: #FDF7EA;
+	border-bottom: rgb(223, 208, 177) 1px solid;
+	border-width: 1px;
+	margin-bottom: 20px;
 }
